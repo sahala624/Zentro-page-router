@@ -27,8 +27,7 @@ export const getServerSideProps: GetServerSideProps<
   try {
     const productId = context.params?.productId as string;
 
-    const product = await ProductService.getProductById(productId);
-
+    const product = await ProductService.getProductById(Number(productId));
     if (!product) {
       return { notFound: true };
     }
